@@ -75,3 +75,11 @@ crashlytics-build.properties
 fabric.properties
 
 .DS_Store
+
+# for Python venv model training script
+venv/
+training/trained_model/assets
+training/trained_model/variables
+training/trained_model/fingerprint.pb
+training/trained_model/keras_metadata.pb
+training/trained_model/saved_model.pb

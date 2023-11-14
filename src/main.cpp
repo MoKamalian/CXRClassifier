@@ -2,6 +2,9 @@
  *
  * @author: amir kamalian
  * @date:   28 sep 2023
+ *
+ * @reference: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+ *
  * */
 
 
@@ -24,8 +27,11 @@ int main(int argc, char** argv) {
        exit(0);
     }
 
+    /* read in image to be classified */
     cv::Mat image = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
 
+
+    
 
     return 0;
 }

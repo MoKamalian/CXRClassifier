@@ -49,7 +49,7 @@ build cmake_object_order_depends_target_CXRClassifier: phony || CMakeFiles/CXRCl
 build CMakeFiles/CXRClassifier.dir/src/main.cpp.o: CXX_COMPILER__CXRClassifier_Debug /Users/mokamalian/Documents/IT_PROGRAMMING/2023F/INFT3000/CXRClassifier/src/main.cpp || cmake_object_order_depends_target_CXRClassifier
   DEP_FILE = CMakeFiles/CXRClassifier.dir/src/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk -fcolor-diagnostics -std=gnu++2b
-  INCLUDES = -I/opt/homebrew/Cellar/opencv/4.8.1/include/opencv4
+  INCLUDES = -I/opt/homebrew/Cellar/opencv/4.8.1_2/include/opencv4
   OBJECT_DIR = CMakeFiles/CXRClassifier.dir
   OBJECT_FILE_DIR = CMakeFiles/CXRClassifier.dir/src
 
@@ -61,10 +61,10 @@ build CMakeFiles/CXRClassifier.dir/src/main.cpp.o: CXX_COMPILER__CXRClassifier_D
 #############################################
 # Link the executable CXRClassifier
 
-build CXRClassifier: CXX_EXECUTABLE_LINKER__CXRClassifier_Debug CMakeFiles/CXRClassifier.dir/src/main.cpp.o | /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_core.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_imgproc.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_img_hash.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_imgcodecs.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_intensity_transform.4.8.1.dylib
+build CXRClassifier: CXX_EXECUTABLE_LINKER__CXRClassifier_Debug CMakeFiles/CXRClassifier.dir/src/main.cpp.o | /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_core.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_imgproc.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_img_hash.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_imgcodecs.4.8.1.dylib /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_intensity_transform.4.8.1.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.0.sdk
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/opencv/4.8.1/lib  /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_core.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_imgproc.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_img_hash.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_imgcodecs.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1/lib/libopencv_intensity_transform.4.8.1.dylib
-  LINK_PATH = -L/opt/homebrew/Cellar/opencv/4.8.1/lib
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/opencv/4.8._2/lib  /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_core.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_imgproc.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_img_hash.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_imgcodecs.4.8.1.dylib  /opt/homebrew/Cellar/opencv/4.8.1_2/lib/libopencv_intensity_transform.4.8.1.dylib
+  LINK_PATH = -L/opt/homebrew/Cellar/opencv/4.8._2/lib
   OBJECT_DIR = CMakeFiles/CXRClassifier.dir
   POST_BUILD = :
   PRE_LINK = :
