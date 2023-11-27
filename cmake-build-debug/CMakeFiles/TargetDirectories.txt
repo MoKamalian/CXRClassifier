@@ -1,3 +1,0 @@
-/Users/mokamalian/Documents/IT_PROGRAMMING/2023F/INFT3000/CXRClassifier/cmake-build-debug/CMakeFiles/CXRClassifier.dir
-/Users/mokamalian/Documents/IT_PROGRAMMING/2023F/INFT3000/CXRClassifier/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/mokamalian/Documents/IT_PROGRAMMING/2023F/INFT3000/CXRClassifier/cmake-build-debug/CMakeFiles/rebuild_cache.dir
