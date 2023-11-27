@@ -15,6 +15,7 @@
 
 
 using std::cout, std::endl;
+using namespace cv;
 
 /** @brief command line argument parser */
 bool parse_command_line(int argc, char** args);
@@ -30,8 +31,24 @@ int main(int argc, char** argv) {
     /* read in image to be classified */
     cv::Mat image = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
 
+    dnn::Net net = dnn::readNetFromTensorflow("../training/frozen_graph/cxr_classifier.pb");
 
-    
+    try {
+        if (net.empty()) {
+            std::cerr << "Error: Failed to load the TensorFlow model." << endl;
+            return -1;
+        }
+    } catch (const cv::Exception& ex) {
+        std::cerr << "OpenCV Exception: " << ex.what() << endl;
+        return -1;
+    } catch (const std::exception& ex) {
+        std::cerr << "Standard Exception: " << ex.what() << endl;
+        return -1;
+    } catch (...) {
+        std::cerr << "Unknown Exception." << endl;
+        return -1;
+    }
+
 
     return 0;
 }

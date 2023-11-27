@@ -8,7 +8,8 @@ used are in chest_xray/train.
 """
 
 import os
-import tensorflow
+import tensorflow as tf
+from tensorflow.python.framework.convert_to_constants import convert_variables_to_constants_v2
 import cv2
 from keras import layers, models
 from keras.preprocessing.image import ImageDataGenerator
@@ -78,6 +79,29 @@ cls_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accura
 cls_model.fit(generate_set, epochs=10)
 
 # saving model to be using with openCV
-cls_model.save('trained_model')
+cls_model.export('trained_model')
+
+
+# save model as a frozen graph file
+# https://docs.opencv.org/4.x/d1/d8f/tf_cls_tutorial_dnn_conversion.html
+model_name = "cxr_classifier.pb"
+fg_path = 'frozen_graph'
+
+# get tensorflow graph
+model_graph = tf.function(lambda x: cls_model(x))
+
+# getting the concrete function
+model_graph = model_graph.get_concrete_function(tf.TensorSpec(cls_model.inputs[0].shape, cls_model.inputs[0].dtype))
+
+# getting frozen concrete function
+frozen_tf_func = convert_variables_to_constants_v2(model_graph)
+frozen_tf_func.graph.as_graph_def()
+
+# saving tensorflow model
+tf.io.write_graph(graph_or_graph_def=frozen_tf_func.graph,
+                  logdir=fg_path,
+                  name=model_name,
+                  as_text=False)
+
 
 
