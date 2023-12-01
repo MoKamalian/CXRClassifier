@@ -15,15 +15,20 @@ from keras import layers, models
 from keras.preprocessing.image import ImageDataGenerator
 
 
-# image resizing
+# image resizing; the paths here are relative to the Python script
+# take the training images....
 images_NORMAL = '../chest_xray/train/NORMAL'
 images_PNEUMONIA = '../chest_xray/train/PNEUMONIA'
 
+# ....and save the resized images here after processing
 output_NORMAL = 'preprocessed_images/NORMAL'
 output_PNEUMONIA = 'preprocessed_images/PNEUMONIA'
 
+# ====== IMAGE SIZE ======
 size = (256, 256)
 
+# this function was used for image resizing for model training
+# only uncomment to process the images if they have not already been resized for input to the model
 """ 
 def resize_images(input_path: str, output_path: str, resize_to: (int, int)) -> None:
     if not os.path.exists(output_path):
@@ -57,11 +62,12 @@ batch_size = 32
 # data normalization
 train_set = ImageDataGenerator(rescale=1/255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
 
-generate_set = train_set.flow_from_directory(training_images, target_size=size, batch_size=32, class_mode='binary')
+generate_set = train_set.flow_from_directory(training_images, target_size=size,
+                                             batch_size=batch_size, color_mode='grayscale', class_mode='binary')
 
-# CNN definition
+# CNN definition SINGLE CHANNEL FOR GRAYSCALE IMAGES
 cls_model = models.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(size[0], size[1], 3)),
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(size[0], size[1], 1)),
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
